@@ -1,13 +1,9 @@
 Rails.application.routes.draw do
-  get 'orders/new'
 
-  get 'orders/create'
-
-  get 'orders/express_checkout'
-  
   resources :orders, only: [:new, :create] do
     collection do
       #/orders/express_checkout
+      get 'cancel' => 'orders#cancel'
       get 'express_checkout' => 'orders#express_checkout' 
       get 'make_orders'=> 'orders#make_orders'
     end
@@ -18,7 +14,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'orders#make_orders'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
