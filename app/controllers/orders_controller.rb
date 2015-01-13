@@ -9,8 +9,8 @@ class OrdersController < ApplicationController
   def express_checkout
      response = EXPRESS_GATEWAY.setup_purchase(150,
       ip: request.remote_ip,
-      return_url: success_orders_path,
-      cancel_return_url: cancel_orders_path,
+      return_url: new_order_url,
+      cancel_return_url: cancel_orders_url,
       currency: "USD",
       allow_guest_checkout: true,
       items: [{name: "Order", description: "Order description", quantity: "1", amount: 150}]
