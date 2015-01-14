@@ -6,8 +6,8 @@ Rails.application.routes.draw do
       get 'cancel' => 'orders#cancel'
       get 'express_checkout' => 'orders#express_checkout' 
       get 'make_orders'=> 'orders#make_orders'
-      get 'failure' => 'order#failure'
-      get 'successful' => 'order#successful'
+      get 'failure' => 'orders#failure'
+      get 'successful' => 'orders#successful'
     end
   end
     
